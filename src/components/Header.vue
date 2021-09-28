@@ -121,6 +121,10 @@ export default {
     display: block;
     color: white;
     font-weight: bolder;
+    transition: 0.3s;
+}
+.nav a:hover {
+    color: rgb(211, 211, 211);
 }
 
 .logo {

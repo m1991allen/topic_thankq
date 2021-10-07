@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="main">
+        <h1>{{ title }}</h1>
         <p>{{ date }}</p>
-        <div class="outside">
-            <div class="inner">
-                <h2><span>陳柏惟</span><span>罷免案</span></h2>
-                <p>開票、門檻一次看！</p>
-                <a href="#voting">點我看開票</a>
-            </div>
-        </div>
+        <h2>{{ subtitle }}</h2>
+        <a class="click-me" href="#voting">點我 <i class="far fa-mouse-pointer"></i></a>
+    </div>
+    <div class="main-mb">
+        <img src="../assets/main_bg_mb.svg" />
+        <a class="click-me" href="#voting">點我 <i class="far fa-mouse-pointer"></i></a>
     </div>
 </template>
 
@@ -15,105 +15,107 @@
 export default {
     data() {
         return {
-            date: '2021/10/23',
+            title: '陳柏惟罷免案',
+            date: '10/23',
+            subtitle: '開票、門檻一次看',
         }
     },
 }
 </script>
 
 <style scoped>
-h2 {
-    margin: 2rem;
-    font-weight: bolder;
+@font-face {
+    font-family: DFT_B9;
+    src: url(https://www.ftvnews.com.tw/topics/thankq/font/DFT_B9.ttf);
 }
 
-.outside {
-    background-color: #a73f24;
-    width: 100%;
-    height: 450px;
-    transform: rotate(-2deg);
-    overflow-x: hidden;
+.main {
+    font-family: DFT_B9, Helvetica, Arial, sans-serif, 微軟正黑體, 蘋果儷中黑;
+    font-weight: lighter;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url(../assets/main_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    max-width: 2000px;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.inner {
-    background-color: #fff;
-    width: 105%;
-    height: 400px;
-    position: absolute;
-    transform: translate(-2%, 6%) rotate(-1deg);
-}
-
-h2 span {
-    display: block;
-    color: black;
-    font-size: 4rem;
-    margin: 1rem 0;
-}
-
-/* 文字：陳柏惟罷免案 */
-
-h2 span:nth-child(1) {
-    transform: translateX(-3%);
-    animation: rightToLeft 2s;
-}
-
-h2 span:nth-child(2) {
-    transform: translateX(3%);
-    animation: leftToRight 2s 0.5s forwards;
-    opacity: 0;
-}
-
-/* 文字：開票門檻一次看 */
-.inner p {
-    color: #a73f24;
-    font-size: 2rem;
-    padding: 0.5rem;
-    text-align: left;
-    border: 3px solid #a73f24;
-    display: inline-block;
-    transform: translateX(0px);
-    line-height: 3rem;
-    white-space: nowrap;
-}
-
-@keyframes rightToLeft {
-    0% {
-        transform: translateX(0%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(-3%);
-        opacity: 1;
-    }
-}
-
-@keyframes leftToRight {
-    0% {
-        transform: translateX(0%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(3%);
-        opacity: 1;
-    }
-}
-
-p {
-    transform: translateY(-3px) rotate(-2deg);
-    font-size: 3rem;
-    margin: 0 1rem;
-    color: #a73f24;
-    text-align: left;
-    font-weight: bolder;
-}
-
-a {
-    display: block;
-    background-color: #384776;
-    color: white;
+.click-me {
     font-size: 1.4rem;
-    max-width: 200px;
-    margin: 2rem auto;
-    padding: 0.5rem;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    outline: rgb(255, 252, 49) 1px solid;
+    animation: outline 1s linear infinite;
+}
+
+/* 背景桌機版設定 */
+.main .click-me {
+    transform: translateY(100%);
+}
+
+/* 背景手機版設定 */
+.main-mb {
+    display: none;
+    position: relative;
+}
+
+.main-mb .click-me {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+}
+
+@keyframes outline {
+    0% {
+        outline: rgb(255, 252, 49) 1px solid;
+    }
+    100% {
+        outline: rgba(255, 255, 255, 0) 10px solid;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        display: none;
+    }
+    .main-mb {
+        display: block;
+    }
+}
+
+.main h1 {
+    font-size: 5rem;
+    color: white;
+}
+
+.main h2 {
+    font-size: 3rem;
+    color: white;
+}
+
+.main p {
+    font-size: 2rem;
+    padding-top: 2rem;
+    color: white;
+    text-align: center;
+}
+
+h1,
+h2,
+p {
+    text-shadow: 3px 3px 10px black;
 }
 </style>

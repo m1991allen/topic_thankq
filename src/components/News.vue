@@ -80,6 +80,7 @@ export default {
     text-align: left;
     margin: 20px 0 0 0;
     padding: 0.3rem;
+    font-weight: lighter;
 }
 
 .news img {
@@ -98,6 +99,7 @@ export default {
     max-height: 60px;
     text-align: left;
     font-size: 1.2rem;
+    font-weight: normal;
     padding: 0.3rem;
 }
 @media screen and (max-width: 768px) {

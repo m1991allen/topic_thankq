@@ -8,10 +8,6 @@
                 </a>
             </nav>
         </i>
-
-        <figure>
-            <img class="logo" src="../assets/logo_ftvn.png" alt="民視新聞網" />
-        </figure>
     </div>
 </template>
 
@@ -21,7 +17,7 @@ export default {
         return {
             list: [
                 {
-                    title: '新聞直播',
+                    title: '開票直播',
                     anchor: '#voting',
                 },
                 {
@@ -37,16 +33,16 @@ export default {
                     anchor: '#reason',
                 },
                 {
+                    title: '各方說法',
+                    anchor: '#factions',
+                },
+                {
                     title: '罷免程序',
                     anchor: '#porcess',
                 },
                 {
                     title: '罷免門檻',
                     anchor: '#recall',
-                },
-                {
-                    title: '各方說法',
-                    anchor: '#factions',
                 },
                 {
                     title: '相關新聞',
@@ -81,22 +77,16 @@ export default {
 </script>
 
 <style scoped>
-.flex-logo {
-    margin: 1rem;
-    margin-bottom: 3rem;
-    text-align: left;
-}
-
 /* 漢堡選單 */
 .fa-list {
     color: #a73f24;
     cursor: pointer;
     position: fixed;
     z-index: 999;
+    top: 1rem;
     right: 1rem;
     background-color: white;
     border-radius: 10px;
-    padding: 5px;
     padding: 5px;
     box-shadow: 1px 2px 3px black;
 }
@@ -104,7 +94,7 @@ export default {
     width: 250px;
     padding: 1rem;
     position: fixed;
-    background-color: #f67351f0;
+    background-color: rgba(223, 223, 223, 0.822);
     z-index: 998;
     top: 3.3rem;
     right: 1rem;
@@ -119,12 +109,12 @@ export default {
     font-size: 1rem;
     margin: 1rem;
     display: block;
-    color: white;
+    color: #a73f24;
     font-weight: bolder;
     transition: 0.3s;
 }
 .nav a:hover {
-    color: rgb(211, 211, 211);
+    color: #662616;
 }
 
 .logo {

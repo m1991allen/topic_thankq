@@ -21,7 +21,7 @@
                 <p>{{ title_disagree }}<span id="disagree_vote"></span></p>
 
                 <!-- 開票結果 -->
-                <p style="text-align:center;">開票結果：未開票</p>
+                <p style="text-align:center;">開票結果：開票中</p>
             </div>
         </div>
     </div>
@@ -31,12 +31,17 @@
 export default {
     data() {
         return {
-            title: '新聞直播',
+            title: '開票直播',
             title_agree: '同意（門檻：72,781）: ',
             title_disagree: '不同意： ',
             vote_ag: '7500',
             vote_dag: '75000',
             vote_tatol: 150000,
+
+            vote:{
+                agree: 123, //同意票
+                disagree: 123, //不同意票
+            }
         }
     },
 

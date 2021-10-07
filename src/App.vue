@@ -5,9 +5,9 @@
     <CharacterProfile />
     <CharacterVoted />
     <ContentReason />
+    <ContentFactions />
     <ContentProcess />
     <ContentRecall />
-    <ContentFactions />
     <News />
     <Footer />
     <Addition />
@@ -144,7 +144,6 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -183,10 +182,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
 body {
     margin: 0;
     width: 100%;
@@ -194,7 +195,7 @@ body {
 }
 
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif, 微軟正黑體, 蘋果儷中黑;
+    font-family: Helvetica, Arial, sans-serif, 微軟正黑體, 蘋果儷中黑;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -202,6 +203,11 @@ body {
     transition: 0.3s;
     width: 100%;
     overflow-x: hidden;
+}
+
+h1,
+h2 {
+    font-weight: lighter;
 }
 
 h3 {

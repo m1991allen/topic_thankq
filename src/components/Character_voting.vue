@@ -12,16 +12,18 @@
                 ></iframe>
             </div>
             <div class="vote">
-                <!-- 同意票 -->
+                <!-- 同意票/不同意票 -->
                 <div class="votebox"><span id="agree_bar"></span></div>
                 <p>{{ title_agree }}<span id="agree_vote"></span></p>
 
-                <!-- 不同意票 -->
                 <div class="votebox"><span id="disagree_bar"></span></div>
                 <p>{{ title_disagree }}<span id="disagree_vote"></span></p>
 
                 <!-- 開票結果 -->
-                <p style="text-align:center;">開票結果：開票中</p>
+                <h3 style="text-align:center; margin-top:5rem;">
+                    開票結果
+                </h3>
+                <img src="../assets/result.jpg" alt="開票結果" style="width:100%" />
             </div>
         </div>
     </div>
@@ -31,30 +33,27 @@
 export default {
     data() {
         return {
-            title: '開票直播',
-            title_agree: '同意（門檻：72,781）: ',
+            title: '即時開票',
+            title_agree: '同意（門檻：7萬3744票）: ',
             title_disagree: '不同意： ',
-            vote_ag: '7500',
-            vote_dag: '75000',
-            vote_tatol: 150000,
-
-            vote:{
-                agree: 123, //同意票
-                disagree: 123, //不同意票
-            }
+            vote_tatol: 100000,
+            vote_agree: 77899,
+            vote_disagree: 73433,
         }
     },
 
     methods: {
-        voting() {
-            let vote_agree = this.vote_ag
-            let vote_disagree = this.vote_dag
+        vote() {
+            // eslint-disable-next-line no-undef
+            let vote_agree = this.vote_agree
+            let vote_disagree = this.vote_disagree
+            let bar_agree = Math.floor((vote_agree / this.vote_tatol) * 100)
+            let bar_disagree = Math.floor((vote_disagree / this.vote_tatol) * 100)
 
-            let bar_agree = Math.floor((this.vote_ag / this.vote_tatol) * 100)
-            let bar_disagree = Math.floor((this.vote_dag / this.vote_tatol) * 100)
-
-            document.getElementById('agree_vote').innerText = vote_agree.replace(/\B(?=(\d{4})+(?!\d))/g, '萬')
-            document.getElementById('disagree_vote').innerText = vote_disagree.replace(/\B(?=(\d{4})+(?!\d))/g, '萬')
+            document.getElementById('agree_vote').innerText =
+                vote_agree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票'
+            document.getElementById('disagree_vote').innerText =
+                vote_disagree.toString().replace(/\B(?=(\d{4})+(?!\d))/g, '萬') + ' 票'
 
             document.getElementById('agree_bar').style.width = bar_agree + '%'
             document.getElementById('disagree_bar').style.width = bar_disagree + '%'
@@ -62,7 +61,7 @@ export default {
     },
 
     mounted() {
-        this.voting()
+        this.vote()
     },
 }
 </script>
@@ -105,12 +104,12 @@ export default {
 
 /* 票數據條 */
 #agree_bar {
-    width: 30%;
+    width: 0%;
     background-color: #374574;
 }
 
 #disagree_bar {
-    width: 30%;
+    width: 0%;
     background-color: #743737;
 }
 </style>

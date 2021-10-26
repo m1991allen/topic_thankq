@@ -17,7 +17,7 @@ export default {
         return {
             list: [
                 {
-                    title: '開票直播',
+                    title: '即時開票',
                     anchor: '#voting',
                 },
                 {

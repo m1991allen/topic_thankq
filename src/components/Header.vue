@@ -78,6 +78,18 @@ export default {
 
 <style scoped>
 /* 漢堡選單 */
+.nav {
+    width: 250px;
+    padding: 1rem;
+    position: fixed;
+    background-color: rgba(223, 223, 223, 0.822);
+    z-index: 998;
+    top: 3.3rem;
+    right: 1rem;
+    border-radius: 10px;
+    display: none;
+}
+
 .fa-list {
     color: #a73f24;
     cursor: pointer;
@@ -89,17 +101,6 @@ export default {
     border-radius: 10px;
     padding: 5px;
     box-shadow: 1px 2px 3px black;
-}
-.nav {
-    width: 250px;
-    padding: 1rem;
-    position: fixed;
-    background-color: rgba(223, 223, 223, 0.822);
-    z-index: 998;
-    top: 3.3rem;
-    right: 1rem;
-    border-radius: 10px;
-    display: none;
 }
 
 .fa-list:hover .nav {
